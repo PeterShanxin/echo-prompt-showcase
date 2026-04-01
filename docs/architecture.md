@@ -1,6 +1,6 @@
 # Architecture Overview
 
-This document describes the public-safe architecture of Echo Prompt at a conceptual level.
+This document describes the high-level architecture of Echo Prompt at a conceptual level.
 
 ## System Role
 
@@ -8,24 +8,9 @@ Echo Prompt acts as a control plane for prompt-backed application behavior. It g
 
 ## High-Level View
 
-```mermaid
-flowchart LR
-    A[Operators and Builders] --> B[Echo Prompt Control Plane]
-    E[CI or Release Workflows] --> B
-    B --> C[Application Services]
-    C --> D[End User Experiences]
-    C --> F[Execution Event Stream]
-    F --> B
+![Echo Prompt architecture diagram](architecture-diagram.svg)
 
-    subgraph B[Echo Prompt Control Plane]
-      B1[Asset Registry]
-      B2[Version Lifecycle]
-      B3[Change Governance]
-      B4[Execution Observability]
-    end
-```
-
-## Public-Safe Component Model
+## Component Model
 
 ### Asset Registry
 

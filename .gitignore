@@ -13,3 +13,4 @@ _PRIVATE_*
 .env.*
 
 .playwright*
+LICENSE_RECOMMENDATION.md

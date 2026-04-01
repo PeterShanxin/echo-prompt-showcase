@@ -1,12 +1,16 @@
 # Echo Prompt
 
-Investor-facing showcase for a governed prompt operations layer that helps teams ship AI features with version control, reviewability, and execution traceability.
+Echo Prompt is a governed prompt operations layer that helps teams ship AI features with version control, reviewability, and execution traceability.
 
 ## Why It Exists
 
 Teams building LLM-powered products often manage prompts, context, and workflow logic across scattered files, ad hoc dashboards, and manual deployment steps. That makes changes hard to review, hard to audit, and risky to ship.
 
 Echo Prompt is designed to give those teams a single operational layer for prompt assets: what exists, which version is active, what changed, and how those changes performed over time.
+
+## Why It Matters
+
+As AI features move into production, prompt changes start to behave like application changes: they affect quality, cost, latency, and user outcomes. Echo Prompt is built to make those changes observable, governable, and easier to ship with confidence.
 
 ## Core Product Capabilities
 
@@ -26,6 +30,8 @@ Echo Prompt sits between AI application teams and the runtime systems that use p
 - Application services retrieve approved versions through a stable service boundary
 - Execution events can be written back for observability and auditability
 
+![Echo Prompt architecture diagram](docs/architecture-diagram.svg)
+
 More detail is available in [docs/architecture.md](docs/architecture.md).
 
 ## Product View
@@ -44,16 +50,16 @@ Echo Prompt is currently in private alpha. The internal product already demonstr
 - execution-log capture
 - a lightweight operator dashboard
 
-This showcase repo is intentionally narrower than the internal system. It is meant to explain product direction and technical maturity, not reproduce the production implementation.
+This repository is intentionally narrower than the internal system. It is meant to explain product direction and technical maturity, not reproduce the production implementation.
 
-## What Is Included In This Public Showcase
+## Included Here
 
 - concise product overview
 - high-level architecture documentation
 - sanitized demo flow
 - a safe UI screenshot
-- example public-safe payloads that illustrate interface shape
-- roadmap and diligence notes
+- example payloads that illustrate interface shape
+- roadmap and contact notes
 
 See also [examples/sample-api-contract.md](examples/sample-api-contract.md) for sanitized interface examples.
 
@@ -68,8 +74,11 @@ See also [examples/sample-api-contract.md](examples/sample-api-contract.md) for 
 
 ## Boundary Note
 
-This repository is a curated public showcase. Core production systems and sensitive implementation details are intentionally omitted. Deeper technical diligence can be discussed separately on request.
+This repository is a curated external overview. Core production systems and sensitive implementation details are intentionally omitted. Deeper technical review can be discussed separately on request.
 
-## Diligence Access
+## Contact
 
-For investor or partner diligence requests, contact the repository owner privately through GitHub or through an existing Echo Prompt diligence channel.
+For technical review, partnership discussions, or diligence requests:
+
+- `liuyizhi774@gmail.com`
+- `shanxinpeter@gmail.com`

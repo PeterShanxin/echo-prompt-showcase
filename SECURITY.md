@@ -6,11 +6,12 @@ This repository is documentation-led and intentionally excludes deployable produ
 
 ## Reporting
 
-If you believe you have identified a security issue related to materials in this repository, please report it privately to the Echo Prompt team.
+If you believe you have identified a security issue related to materials in this repository, please report it privately to:
+
+- `liuyizhi774@gmail.com`
+- `shanxinpeter@gmail.com`
 
 Please do not open a public issue for potential security concerns.
-
-Until a dedicated security mailbox is published, use a private GitHub contact route with the repository owner.
 
 ## Additional Notes
 

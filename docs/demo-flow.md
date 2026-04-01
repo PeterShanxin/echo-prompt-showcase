@@ -1,6 +1,6 @@
 # Demo Flow
 
-This document describes the product story a reviewer should take away from the showcase materials.
+This document describes the product story a reviewer should take away from the materials in this repository.
 
 ## Operator Flow
 
@@ -28,7 +28,7 @@ The product value comes from giving teams:
 - an audit trail around AI behavior changes
 - a cleaner contract between application code and prompt operations
 
-## Public Showcase Limits
+## Repository Limits
 
 This document intentionally avoids:
 
