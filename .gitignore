@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+
+_PRIVATE_*
+
+*.tmp
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+.env
+.env.*
+
+.playwright*
