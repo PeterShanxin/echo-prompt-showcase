@@ -78,7 +78,7 @@ This repository is a curated external overview. Core production systems and sens
 
 ## Download
 # Currently restricted to early testers
-pip install echo-prompt-sdk==0.1.0-alpha.1
+pip install fastapi uvicorn sqlalchemy pydantic
 ## Contact
 
 For technical review, partnership discussions, or diligence requests:
