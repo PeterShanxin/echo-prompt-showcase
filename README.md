@@ -76,6 +76,9 @@ See also [examples/sample-api-contract.md](examples/sample-api-contract.md) for 
 
 This repository is a curated external overview. Core production systems and sensitive implementation details are intentionally omitted. Deeper technical review can be discussed separately on request.
 
+## Download
+# Currently restricted to early testers
+pip install echo-prompt-sdk==0.1.0-alpha.1
 ## Contact
 
 For technical review, partnership discussions, or diligence requests:
