@@ -1,79 +1,169 @@
 <svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#09111F"/>
-      <stop offset="1" stop-color="#101B2E"/>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050B14"/>
+      <stop offset="1" stop-color="#0B1526"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#12233C"/>
-      <stop offset="1" stop-color="#0D182A"/>
+
+    <!-- Side Panel Cards Gradient -->
+    <linearGradient id="card-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#122238"/>
+      <stop offset="1" stop-color="#0A1321"/>
     </linearGradient>
-    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#1D5CFF"/>
-      <stop offset="1" stop-color="#3A9BFF"/>
+
+    <!-- Center Control Plane Gradient -->
+    <linearGradient id="core-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#0E2954"/>
+      <stop offset="1" stop-color="#07152B"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#11C5BF"/>
-      <stop offset="1" stop-color="#0E8EEA"/>
+
+    <!-- Inner Control Plane Boxes -->
+    <linearGradient id="inner-box-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#152F5B"/>
+      <stop offset="1" stop-color="#0C1D3A"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#02060D" flood-opacity="0.35"/>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow-soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
     </filter>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-      <path d="M1 1L11 6L1 11V1Z" fill="#78B7FF"/>
-    </marker>
+    <filter id="shadow-core" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#00081A" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Glow for center border -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
 
-  <rect width="1280" height="720" rx="32" fill="url(#bg)"/>
-  <circle cx="1112" cy="126" r="180" fill="#12305A" opacity="0.18"/>
-  <circle cx="158" cy="610" r="210" fill="#1C4D90" opacity="0.16"/>
+  <!-- Base Background -->
+  <rect width="1280" height="720" rx="24" fill="url(#bg-grad)"/>
+  
+  <!-- Subtle decorative ambient glows -->
+  <circle cx="1100" cy="150" r="250" fill="#1D4ED8" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="200" cy="600" r="250" fill="#2DD4BF" opacity="0.05" filter="url(#glow)"/>
 
-  <text x="88" y="96" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="40" font-weight="700">Echo Prompt</text>
-  <text x="88" y="134" fill="#9DB3CC" font-family="Segoe UI, Arial, sans-serif" font-size="20">High-level system architecture</text>
+  <!-- Main Header -->
+  <text x="80" y="90" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Echo Prompt</text>
+  <text x="82" y="125" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="400">High-level system architecture</text>
 
-  <rect x="84" y="204" width="242" height="132" rx="24" fill="url(#panel)" stroke="#28486C" stroke-width="2" filter="url(#shadow)"/>
-  <text x="116" y="250" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Builders</text>
-  <text x="116" y="285" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Product, ML, and platform teams</text>
-  <text x="116" y="313" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">define and update prompt assets</text>
+  <!-- ========================================== -->
+  <!-- LEFT COLUMN: INPUTS                        -->
+  <!-- ========================================== -->
 
-  <rect x="84" y="404" width="242" height="132" rx="24" fill="url(#panel)" stroke="#28486C" stroke-width="2" filter="url(#shadow)"/>
-  <text x="116" y="450" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Release Workflows</text>
-  <text x="116" y="485" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">CI, review, and approval paths</text>
-  <text x="116" y="513" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">govern how changes move live</text>
+  <!-- Builders -->
+  <g filter="url(#shadow-soft)">
+    <rect x="80" y="200" width="260" height="130" rx="16" fill="url(#card-grad)" stroke="#1E3A5F" stroke-width="1.5"/>
+    <text x="104" y="240" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">Builders</text>
+    <text x="104" y="275" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">Product, ML, and</text>
+    <text x="104" y="297" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">platform teams define</text>
+    <text x="104" y="319" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">and update prompt assets</text>
+  </g>
 
-  <rect x="410" y="156" width="456" height="410" rx="34" fill="url(#core)" filter="url(#shadow)"/>
-  <rect x="438" y="216" width="400" height="80" rx="20" fill="#0D1B2D" opacity="0.92"/>
-  <rect x="438" y="314" width="190" height="94" rx="20" fill="#102338" opacity="0.94"/>
-  <rect x="648" y="314" width="190" height="94" rx="20" fill="#102338" opacity="0.94"/>
-  <rect x="438" y="426" width="190" height="94" rx="20" fill="#102338" opacity="0.94"/>
-  <rect x="648" y="426" width="190" height="94" rx="20" fill="#102338" opacity="0.94"/>
+  <!-- Release Workflows -->
+  <g filter="url(#shadow-soft)">
+    <rect x="80" y="420" width="260" height="130" rx="16" fill="url(#card-grad)" stroke="#1E3A5F" stroke-width="1.5"/>
+    <text x="104" y="460" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">Release Workflows</text>
+    <text x="104" y="495" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">CI, review, and approval</text>
+    <text x="104" y="517" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">paths govern how</text>
+    <text x="104" y="539" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">changes move live</text>
+  </g>
 
-  <text x="458" y="191" fill="#EAF3FF" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700">Echo Prompt control plane</text>
-  <text x="466" y="264" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Asset registry and release state</text>
-  <text x="466" y="352" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Asset registry</text>
-  <text x="466" y="382" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Prompts, context, skills, workflows</text>
-  <text x="676" y="352" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Version lifecycle</text>
-  <text x="676" y="382" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Draft, approved, active, deprecated</text>
-  <text x="466" y="464" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Change governance</text>
-  <text x="466" y="494" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Review, promotion, release controls</text>
-  <text x="676" y="464" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Execution telemetry</text>
-  <text x="676" y="494" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Latency, usage, traceability</text>
+  <!-- ========================================== -->
+  <!-- CENTER COLUMN: CONTROL PLANE               -->
+  <!-- ========================================== -->
+  <g filter="url(#shadow-core)">
+    <!-- Main Control Plane Container -->
+    <rect x="420" y="160" width="440" height="420" rx="24" fill="url(#core-grad)" stroke="#3B82F6" stroke-width="2"/>
+    <text x="640" y="205" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="0.5">Echo Prompt control plane</text>
 
-  <rect x="946" y="204" width="248" height="132" rx="24" fill="url(#panel)" stroke="#28486C" stroke-width="2" filter="url(#shadow)"/>
-  <text x="978" y="250" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Application services</text>
-  <text x="978" y="285" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Consume approved assets through</text>
-  <text x="978" y="313" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">a stable service boundary</text>
+    <!-- Top Inner Box: Registry & Release State -->
+    <rect x="440" y="235" width="400" height="60" rx="12" fill="url(#inner-box-grad)" stroke="#25467A" stroke-width="1.5"/>
+    <text x="640" y="271" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Asset registry and release state</text>
 
-  <rect x="946" y="404" width="248" height="132" rx="24" fill="url(#panel)" stroke="#28486C" stroke-width="2" filter="url(#shadow)"/>
-  <text x="978" y="450" fill="#F4F7FB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">Runtime feedback</text>
-  <text x="978" y="485" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">Execution signals return for</text>
-  <text x="978" y="513" fill="#AFC3D8" font-family="Segoe UI, Arial, sans-serif" font-size="18">review and iteration</text>
+    <!-- Middle Left: Asset Registry -->
+    <rect x="440" y="315" width="190" height="100" rx="12" fill="url(#inner-box-grad)" stroke="#25467A" stroke-width="1.5"/>
+    <text x="456" y="345" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">Asset registry</text>
+    <text x="456" y="372" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">Prompts, context,</text>
+    <text x="456" y="392" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">skills, workflows</text>
 
-  <path d="M326 270H392" stroke="#78B7FF" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M326 470H392" stroke="#78B7FF" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M866 270H928" stroke="#78B7FF" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M946 470H896C878 470 866 458 866 440V432" stroke="#6AD7D2" stroke-width="4" marker-end="url(#arrow)"/>
+    <!-- Middle Right: Version Lifecycle -->
+    <rect x="650" y="315" width="190" height="100" rx="12" fill="url(#inner-box-grad)" stroke="#25467A" stroke-width="1.5"/>
+    <text x="666" y="345" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">Version lifecycle</text>
+    <text x="666" y="372" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">Draft, approved,</text>
+    <text x="666" y="392" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">active, deprecated</text>
 
-  <rect x="84" y="602" width="1112" height="58" rx="18" fill="#0D182A" stroke="#244461"/>
-  <text x="114" y="638" fill="#B7C8D9" font-family="Segoe UI, Arial, sans-serif" font-size="18">Purpose: separate prompt asset operations from application delivery while making changes easier to review, release, and observe.</text>
+    <!-- Bottom Left: Change Governance -->
+    <rect x="440" y="435" width="190" height="100" rx="12" fill="url(#inner-box-grad)" stroke="#25467A" stroke-width="1.5"/>
+    <text x="456" y="465" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">Change governance</text>
+    <text x="456" y="492" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">Review, promotion,</text>
+    <text x="456" y="512" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">release controls</text>
+
+    <!-- Bottom Right: Execution Telemetry -->
+    <rect x="650" y="435" width="190" height="100" rx="12" fill="url(#inner-box-grad)" stroke="#25467A" stroke-width="1.5"/>
+    <text x="666" y="465" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700">Execution telemetry</text>
+    <text x="666" y="492" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">Latency, usage,</text>
+    <text x="666" y="512" fill="#A1B9D1" font-family="system-ui, -apple-system, sans-serif" font-size="14">traceability</text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- RIGHT COLUMN: OUTPUTS & FEEDBACK           -->
+  <!-- ========================================== -->
+
+  <!-- Application Services -->
+  <g filter="url(#shadow-soft)">
+    <rect x="940" y="200" width="260" height="130" rx="16" fill="url(#card-grad)" stroke="#1E3A5F" stroke-width="1.5"/>
+    <text x="964" y="240" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">Application services</text>
+    <text x="964" y="275" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">Consume approved assets</text>
+    <text x="964" y="297" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">through a stable</text>
+    <text x="964" y="319" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">service boundary</text>
+  </g>
+
+  <!-- Runtime Feedback -->
+  <g filter="url(#shadow-soft)">
+    <rect x="940" y="420" width="260" height="130" rx="16" fill="url(#card-grad)" stroke="#1E3A5F" stroke-width="1.5"/>
+    <text x="964" y="460" fill="#F8FAFC" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">Runtime feedback</text>
+    <text x="964" y="495" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">Execution signals return</text>
+    <text x="964" y="517" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="16">for review and iteration</text>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- CONNECTING ARROWS                          -->
+  <!-- ========================================== -->
+
+  <!-- Builders -> Control Plane -->
+  <g>
+    <line x1="340" y1="265" x2="405" y2="265" stroke="#60A5FA" stroke-width="3"/>
+    <polygon points="405,259 415,265 405,271" fill="#60A5FA"/>
+  </g>
+
+  <!-- Release Workflows -> Control Plane -->
+  <g>
+    <line x1="340" y1="485" x2="405" y2="485" stroke="#60A5FA" stroke-width="3"/>
+    <polygon points="405,479 415,485 405,491" fill="#60A5FA"/>
+  </g>
+
+  <!-- Control Plane -> Application Services -->
+  <g>
+    <line x1="860" y1="265" x2="925" y2="265" stroke="#60A5FA" stroke-width="3"/>
+    <polygon points="925,259 935,265 925,271" fill="#60A5FA"/>
+  </g>
+
+  <!-- Runtime Feedback -> Control Plane (Feedback Loop) -->
+  <g>
+    <line x1="940" y1="485" x2="875" y2="485" stroke="#2DD4BF" stroke-width="3"/>
+    <polygon points="875,479 865,485 875,491" fill="#2DD4BF"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <g filter="url(#shadow-soft)">
+    <rect x="80" y="620" width="1120" height="60" rx="16" fill="#0A1321" stroke="#1E3A5F" stroke-width="1.5"/>
+    <text x="640" y="656" fill="#94A3B8" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="400" text-anchor="middle">Purpose: Separate prompt asset operations from application delivery while making changes easier to review, release, and observe.</text>
+  </g>
+
 </svg>
